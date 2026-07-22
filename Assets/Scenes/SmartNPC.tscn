@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://c4xl8ox0seoiu"]
+
+[ext_resource type="Script" uid="uid://cuilsk3ah6jdm" path="res://Assets/Scripts/SmartNPC.gd" id="1_base3"]
+[ext_resource type="Texture2D" uid="uid://d0b1gvwf0o4ed" path="res://Assets/Sprites/Eleonore/Idle/Idle1.png" id="3_ljyvg"]
+[ext_resource type="PackedScene" uid="uid://bbch60ilxp6r6" path="res://Assets/Scenes/SpeechBubble.tscn" id="3_quinb"]
+[ext_resource type="Texture2D" uid="uid://cu14axfqnfy8b" path="res://Assets/Sprites/Eleonore/Idle/Idle2.png" id="4_vuwib"]
+[ext_resource type="Texture2D" uid="uid://bweoau1a521ax" path="res://Assets/Sprites/Eleonore/Idle/Idle3.png" id="5_nvqu0"]
+[ext_resource type="Texture2D" uid="uid://r7lfmu6iymmb" path="res://Assets/Sprites/Eleonore/Idle/Idle4.png" id="6_rncs8"]
+[ext_resource type="Texture2D" uid="uid://dm4fmpyhakhq8" path="res://Assets/Sprites/Eleonore/Idle/Idle5.png" id="7_fnnqe"]
+[ext_resource type="Texture2D" uid="uid://dd1mdwsd5786j" path="res://Assets/Sprites/Eleonore/Idle/Idle6.png" id="8_k4oa4"]
+[ext_resource type="Texture2D" uid="uid://c6ts2ja5jlvgn" path="res://Assets/Sprites/Eleonore/Idle/Idle7.png" id="9_hsg36"]
+[ext_resource type="Texture2D" uid="uid://dm2hp8fxq3mwy" path="res://Assets/Sprites/Eleonore/Idle/Idle8.png" id="10_o5sm1"]
+[ext_resource type="Texture2D" uid="uid://vk2mdwdv817w" path="res://Assets/Sprites/Eleonore/Idle/Idle9.png" id="11_1ks3q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quinb"]
+radius = 12.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ruob"]
+radius = 81.154175
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3bfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ljyvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vuwib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nvqu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rncs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fnnqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k4oa4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hsg36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o5sm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1ks3q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_base3")
+
+[node name="SpeechBubble" parent="." instance=ExtResource("3_quinb")]
+position = Vector2(-133, -125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -23)
+shape = SubResource("CapsuleShape2D_quinb")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(2, -81)
+shape = SubResource("CircleShape2D_5ruob")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, -26)
+sprite_frames = SubResource("SpriteFrames_u3bfw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.752654
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

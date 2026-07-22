@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7qrssjlgfsgd"
+path="res://.godot/imported/demo sound track.mp3-b30bc04e9826047c4522d67a94c81421.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sprites/Legacy-Fantasy - High Forest 2.3/Assets/demo sound track.mp3"
+dest_files=["res://.godot/imported/demo sound track.mp3-b30bc04e9826047c4522d67a94c81421.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

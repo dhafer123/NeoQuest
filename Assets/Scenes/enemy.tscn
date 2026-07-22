@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxl010on54kbt"]
+
+[ext_resource type="Texture2D" uid="uid://byau8t7158g43" path="res://Assets/Sprites/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="1_atlr2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2b7p"]
+atlas = ExtResource("1_atlr2")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g0jp"]
+atlas = ExtResource("1_atlr2")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ye20"]
+atlas = ExtResource("1_atlr2")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4870b"]
+atlas = ExtResource("1_atlr2")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps6h4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2b7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g0jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ye20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4870b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="enemy" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ps6h4")
+autoplay = "default"
+frame_progress = 0.22288133
