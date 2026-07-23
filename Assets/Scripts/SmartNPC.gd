@@ -9,7 +9,7 @@ var is_generating_quote = false
 @onready var speech_bubble = $SpeechBubble
 
 # Gemini API Configuration
-const GEMINI_API_KEY = "AIzaSyCzDwyW0d1VmcpdWenCIum1_aBhs4E0djk"
+const GEMINI_API_KEY = ""
 const GEMINI_MODEL = "gemini-2.5-flash"
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/"
 
